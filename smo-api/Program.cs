@@ -1,4 +1,5 @@
 using Data;
+using Domain.Interfaces.Data;
 using Domain.Interfaces.Settings;
 using Microsoft.Extensions.Options;
 using Settings.MongoDb;
@@ -14,8 +15,8 @@ builder.Services.Configure<MongoDbSettings>(
 builder.Services.AddSingleton<IMongoDbSettings>(sp =>
     sp.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 
-// Register the ProdutoRepository service
-builder.Services.AddSingleton<ProdutoRepository>();
+// Register the IProdutoRepository interface and its implementation
+builder.Services.AddSingleton<IProdutoRepository, ProdutoRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
