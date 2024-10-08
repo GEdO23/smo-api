@@ -62,8 +62,22 @@ public class ProdutoController : ControllerBase
         {
             return NotFound();
         }
-        
+
         await _produtoRepository.UpdateProdutoAsync(id, newProduto);
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeleteProduto(string id)
+    {
+        var produto = await _produtoRepository.GetProdutoByIdAsync(id);
+
+        if (produto == null)
+        {
+            return NotFound();
+        }
+
+        await _produtoRepository.DeleteProdutoAsync(id);
         return NoContent();
     }
 }

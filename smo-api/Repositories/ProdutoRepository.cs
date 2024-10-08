@@ -34,4 +34,9 @@ public class ProdutoRepository
         produtoIn.Id = id;
         await _produtos.ReplaceOneAsync(prod => prod.Id == id, produtoIn);
     }
+
+    public async Task DeleteProdutoAsync(string id)
+    {
+        await _produtos.DeleteOneAsync(prod => prod.Id == id);
+    }
 }
