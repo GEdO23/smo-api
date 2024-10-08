@@ -16,14 +16,14 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<ProdutoModel>>> GetProdutos()
+    public async Task<ActionResult> Get()
     {
         var produtos = await _produtoRepository.GetProdutosAsync();
         return Ok(produtos);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<ProdutoModel>> GetProduto(string id)
+    public async Task<ActionResult> Get(string id)
     {
         var produto = await _produtoRepository.GetProdutoByIdAsync(id);
 
@@ -36,18 +36,18 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> CreateProduto([FromBody] ProdutoModel produto)
+    public async Task<ActionResult> Post([FromBody] ProdutoModel produto)
     {
         await _produtoRepository.CreateProdutoAsync(produto);
         return CreatedAtAction(
-            nameof(GetProduto),
+            nameof(Get),
             new { id = produto.Id },
             produto
         );
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateProduto(string id, [FromBody] ProdutoModel newProduto)
+    public async Task<ActionResult> Put(string id, [FromBody] ProdutoModel newProduto)
     {
         var oldProduto = await _produtoRepository.GetProdutoByIdAsync(id);
 
@@ -61,7 +61,7 @@ public class ProdutoController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteProduto(string id)
+    public async Task<ActionResult> Delete(string id)
     {
         var produto = await _produtoRepository.GetProdutoByIdAsync(id);
 
