@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Data;
+using Domain.Models.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using smo_api.Models;
-using smo_api.Repositories;
-using smo_api.Settings;
+using Settings.MongoDb;
 
 namespace smo_api.Controllers;
 

@@ -1,6 +1,8 @@
-﻿namespace smo_api.Settings;
+﻿using Domain.Interfaces.Settings;
 
-public class MongoDbSettings
+namespace Settings.MongoDb;
+
+public class MongoDbSettings : IMongoDbSettings
 {
     public string? ConnectionString { get; set; }
     public string? DatabaseName { get; set; }

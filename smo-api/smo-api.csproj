@@ -8,18 +8,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+      <PackageReference Include="MongoDB.Driver" Version="2.29.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+      <PackageReference Include="xunit" Version="2.9.2" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="MongoDB.Driver" Version="2.29.0" />
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+      <ProjectReference Include="..\settings\settings.csproj" />
+      <ProjectReference Include="..\domain\domain.csproj" />
+      <ProjectReference Include="..\data\data.csproj" />
     </ItemGroup>
 
 </Project>

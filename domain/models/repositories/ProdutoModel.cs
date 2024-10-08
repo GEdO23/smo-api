@@ -1,9 +1,10 @@
-﻿using MongoDB.Bson;
+﻿using Domain.Interfaces.Models;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace smo_api.Models;
+namespace Domain.Models.Repositories;
 
-public class ProdutoModel
+public class ProdutoModel : IProdutoModel
 {
     [BsonId]
     [BsonRepresentation(BsonType.String)]

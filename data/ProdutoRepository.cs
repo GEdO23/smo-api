@@ -1,9 +1,10 @@
-﻿using MongoDB.Driver;
-using smo_api.Models;
+﻿using Domain.Interfaces.Data;
+using Domain.Models.Repositories;
+using MongoDB.Driver;
 
-namespace smo_api.Repositories;
+namespace Data;
 
-public class ProdutoRepository
+public class ProdutoRepository : IProdutoRepository
 {
     private readonly IMongoCollection<ProdutoModel> _produtos;
 
@@ -21,7 +22,7 @@ public class ProdutoRepository
 
     public async Task<ProdutoModel> GetProdutoByIdAsync(string id)
     {
-        return await _produtos.Find(prod => prod.Id == id).FirstOrDefaultAsync(); ;
+        return await _produtos.Find(prod => prod.Id == id).FirstOrDefaultAsync();
     }
 
     public async Task CreateProdutoAsync(ProdutoModel produto)
