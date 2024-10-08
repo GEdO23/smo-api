@@ -1,4 +1,4 @@
-﻿namespace smo_api.Settings;
+﻿namespace Settings.MongoDb;
 
 public class MongoDbSettings
 {

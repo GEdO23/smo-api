@@ -1,7 +1,6 @@
 ﻿using MongoDB.Driver;
-using smo_api.Models;
 
-namespace smo_api.Repositories;
+namespace Domain.Models.Repositories;
 
 public class ProdutoRepository
 {

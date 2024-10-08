@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace smo_api.Models;
+namespace Domain.Models.Repositories;
 
 public class ProdutoModel
 {

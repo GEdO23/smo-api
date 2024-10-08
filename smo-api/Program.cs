@@ -1,4 +1,4 @@
-using smo_api.Settings;
+using Settings.MongoDb;
 
 var builder = WebApplication.CreateBuilder(args);
 

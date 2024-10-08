@@ -1,4 +1,4 @@
-namespace smo_api.Models;
+namespace Domain.Models.ViewModels;
 
 public class ErrorViewModel
 {

@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smo-api", "smo-api\smo-api.csproj", "{4529525B-CA9F-4EF1-A092-844517D33985}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "domain", "domain\domain.csproj", "{95A90CE6-C968-419C-AEDE-D3AF67F4B2EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "settings", "settings\settings.csproj", "{FC8A36D0-CB12-419B-82CB-EB557EE7F550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{4529525B-CA9F-4EF1-A092-844517D33985}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4529525B-CA9F-4EF1-A092-844517D33985}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4529525B-CA9F-4EF1-A092-844517D33985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A90CE6-C968-419C-AEDE-D3AF67F4B2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {95A90CE6-C968-419C-AEDE-D3AF67F4B2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {95A90CE6-C968-419C-AEDE-D3AF67F4B2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {95A90CE6-C968-419C-AEDE-D3AF67F4B2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+        {FC8A36D0-CB12-419B-82CB-EB557EE7F550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {FC8A36D0-CB12-419B-82CB-EB557EE7F550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {FC8A36D0-CB12-419B-82CB-EB557EE7F550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {FC8A36D0-CB12-419B-82CB-EB557EE7F550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
