@@ -28,4 +28,17 @@ public class ProdutoController : ControllerBase
         var produtos = await _produtoRepository.GetProdutosAsync();
         return Ok(produtos);
     }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<ProdutoModel>> GetProduto(string id)
+    {
+        var produto = await _produtoRepository.GetProdutoByIdAsync(id);
+
+        if (produto == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(produto);
+    }
 }
