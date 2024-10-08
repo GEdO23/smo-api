@@ -28,4 +28,10 @@ public class ProdutoRepository
     {
         await _produtos.InsertOneAsync(produto);
     }
+
+    public async Task UpdateProdutoAsync(string id, ProdutoModel produtoIn)
+    {
+        produtoIn.Id = id;
+        await _produtos.ReplaceOneAsync(prod => prod.Id == id, produtoIn);
+    }
 }

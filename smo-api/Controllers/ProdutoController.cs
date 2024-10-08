@@ -52,4 +52,18 @@ public class ProdutoController : ControllerBase
             produto
         );
     }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult> UpdateProduto(string id, [FromBody] ProdutoModel newProduto)
+    {
+        var oldProduto = await _produtoRepository.GetProdutoByIdAsync(id);
+
+        if (oldProduto == null)
+        {
+            return NotFound();
+        }
+        
+        await _produtoRepository.UpdateProdutoAsync(id, newProduto);
+        return NoContent();
+    }
 }
