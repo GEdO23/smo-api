@@ -21,34 +21,41 @@ Este projeto é uma API para gerenciar produtos utilizando ASP.NET Core e MongoD
 
 ### Pré-requisitos
 
-- .NET 6.0 SDK ou superior
-- MongoDB
+- [Docker](https://www.docker.com/)
 
-### Instalação
+### Como executar o projeto com Docker
 
-1. Clone o repositório:
+Siga as instruções abaixo para executar o container:
 
-    ```sh
-    git clone https://github.com/seu-usuario/smo-api.git
-    ```
+#### 1. Clone o repositório:
 
-2. Navegue até o diretório do projeto:
+```sh
+git clone https://github.com/GEdO23/smo-api.git
+cd smo-api
+```
 
-    ```sh
-    cd smo-api
-    ```
+#### 2. Construir a imagem
 
-3. Restaure as dependências do projeto:
+```sh
+docker build -t smo-api .
+```
+Este comando irá:
+- Construir a imagem a partir do Dockerfile (`-t smo-api`)
+- Utilizar o contexto do diretório atual (onde está o Dockerfile)
+- Nomear a imagem como `smo-api`
 
-    ```sh
-    dotnet restore
-    ```
+#### 3. Execute o comando abaixo para criar o container:
 
-4. Execute o projeto:
+```sh
+docker run -p 8080:8080 smo-api
+```
+Este comando irá:
+- Criar um container a partir da imagem `smo-api`
+- Mapear a porta 8080 do container para a porta 8080 do host
+- Iniciar o container
 
-    ```sh
-    dotnet run
-    ```
+####  4. Acessar a API 
+Acesse a URL http://localhost:8080/api/produto no seu navegador.
 
 ## Endpoints
 
