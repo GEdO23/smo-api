@@ -1,4 +1,5 @@
-﻿using Domain.Models.Repositories;
+﻿using Data;
+using Domain.Models.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Settings.MongoDb;

@@ -1,8 +1,8 @@
 ﻿using Domain.Interfaces.Data;
-using Domain.Interfaces.Models;
+using Domain.Models.Repositories;
 using MongoDB.Driver;
 
-namespace Domain.Models.Repositories;
+namespace Data;
 
 public class ProdutoRepository : IProdutoRepository
 {
@@ -20,21 +20,20 @@ public class ProdutoRepository : IProdutoRepository
         return await _produtos.Find(prod => true).ToListAsync();
     }
 
-    public async Task<IProdutoModel> GetProdutoByIdAsync(string id)
+    public async Task<ProdutoModel> GetProdutoByIdAsync(string id)
     {
         return await _produtos.Find(prod => prod.Id == id).FirstOrDefaultAsync();
-        ;
     }
 
-    public async Task CreateProdutoAsync(IProdutoModel produto)
+    public async Task CreateProdutoAsync(ProdutoModel produto)
     {
-        await _produtos.InsertOneAsync((ProdutoModel)produto);
+        await _produtos.InsertOneAsync(produto);
     }
 
-    public async Task UpdateProdutoAsync(string id, IProdutoModel produtoIn)
+    public async Task UpdateProdutoAsync(string id, ProdutoModel produtoIn)
     {
         produtoIn.Id = id;
-        await _produtos.ReplaceOneAsync(prod => prod.Id == id, (ProdutoModel)produtoIn);
+        await _produtos.ReplaceOneAsync(prod => prod.Id == id, produtoIn);
     }
 
     public async Task DeleteProdutoAsync(string id)
