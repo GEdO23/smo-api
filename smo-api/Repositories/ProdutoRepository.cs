@@ -23,4 +23,9 @@ public class ProdutoRepository
     {
         return await _produtos.Find(prod => prod.Id == id).FirstOrDefaultAsync(); ;
     }
+
+    public async Task CreateProdutoAsync(ProdutoModel produto)
+    {
+        await _produtos.InsertOneAsync(produto);
+    }
 }

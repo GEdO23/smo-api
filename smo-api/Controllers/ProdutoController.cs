@@ -41,4 +41,15 @@ public class ProdutoController : ControllerBase
 
         return Ok(produto);
     }
+
+    [HttpPost]
+    public async Task<ActionResult> CreateProduto([FromBody] ProdutoModel produto)
+    {
+        await _produtoRepository.CreateProdutoAsync(produto);
+        return CreatedAtAction(
+            nameof(GetProduto),
+            new { id = produto.Id },
+            produto
+        );
+    }
 }
