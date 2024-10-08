@@ -1,8 +1,10 @@
-﻿using MongoDB.Driver;
+﻿using Domain.Interfaces.Data;
+using Domain.Interfaces.Models;
+using MongoDB.Driver;
 
 namespace Domain.Models.Repositories;
 
-public class ProdutoRepository
+public class ProdutoRepository : IProdutoRepository
 {
     private readonly IMongoCollection<ProdutoModel> _produtos;
 
@@ -18,20 +20,21 @@ public class ProdutoRepository
         return await _produtos.Find(prod => true).ToListAsync();
     }
 
-    public async Task<ProdutoModel> GetProdutoByIdAsync(string id)
+    public async Task<IProdutoModel> GetProdutoByIdAsync(string id)
     {
-        return await _produtos.Find(prod => prod.Id == id).FirstOrDefaultAsync(); ;
+        return await _produtos.Find(prod => prod.Id == id).FirstOrDefaultAsync();
+        ;
     }
 
-    public async Task CreateProdutoAsync(ProdutoModel produto)
+    public async Task CreateProdutoAsync(IProdutoModel produto)
     {
-        await _produtos.InsertOneAsync(produto);
+        await _produtos.InsertOneAsync((ProdutoModel)produto);
     }
 
-    public async Task UpdateProdutoAsync(string id, ProdutoModel produtoIn)
+    public async Task UpdateProdutoAsync(string id, IProdutoModel produtoIn)
     {
         produtoIn.Id = id;
-        await _produtos.ReplaceOneAsync(prod => prod.Id == id, produtoIn);
+        await _produtos.ReplaceOneAsync(prod => prod.Id == id, (ProdutoModel)produtoIn);
     }
 
     public async Task DeleteProdutoAsync(string id)
