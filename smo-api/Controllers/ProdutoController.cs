@@ -1,8 +1,6 @@
-﻿using Data;
+﻿using Domain.Interfaces.Data;
 using Domain.Models.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Settings.MongoDb;
 
 namespace smo_api.Controllers;
 
@@ -10,16 +8,11 @@ namespace smo_api.Controllers;
 [ApiController]
 public class ProdutoController : ControllerBase
 {
-    private readonly ProdutoRepository _produtoRepository;
+    private readonly IProdutoRepository _produtoRepository;
 
-    public ProdutoController(IOptions<MongoDbSettings> mongoDbSettings)
+    public ProdutoController(IProdutoRepository produtoRepository)
     {
-        var settings = mongoDbSettings.Value;
-        _produtoRepository = new ProdutoRepository(
-            settings.ConnectionString!,
-            settings.DatabaseName!,
-            settings.CollectionName!
-        );
+        _produtoRepository = produtoRepository;
     }
 
     [HttpGet]

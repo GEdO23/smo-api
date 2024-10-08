@@ -1,4 +1,5 @@
 ﻿using Domain.Interfaces.Data;
+using Domain.Interfaces.Settings;
 using Domain.Models.Repositories;
 using MongoDB.Driver;
 
@@ -8,11 +9,11 @@ public class ProdutoRepository : IProdutoRepository
 {
     private readonly IMongoCollection<ProdutoModel> _produtos;
 
-    public ProdutoRepository(string connectionString, string databaseName, string collectionName)
+    public ProdutoRepository(IMongoDbSettings dbSettings)
     {
-        var client = new MongoClient(connectionString);
-        var database = client.GetDatabase(databaseName);
-        _produtos = database.GetCollection<ProdutoModel>(collectionName);
+        var client = new MongoClient(dbSettings.ConnectionString!);
+        var database = client.GetDatabase(dbSettings.DatabaseName!);
+        _produtos = database.GetCollection<ProdutoModel>(dbSettings.CollectionName!);
     }
 
     public async Task<List<ProdutoModel>> GetProdutosAsync()
