@@ -1,21 +1,29 @@
-using smo_api.Settings;
+using Data;
+using Domain.Interfaces.Data;
+using Domain.Interfaces.Settings;
+using Microsoft.Extensions.Options;
+using Settings.MongoDb;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+// Register the MongoDbSettings
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings")
 );
 
+// Register the IMongoDbSettings interface
+builder.Services.AddSingleton<IMongoDbSettings>(sp =>
+    sp.GetRequiredService<IOptions<MongoDbSettings>>().Value);
+
+// Register the IProdutoRepository interface and its implementation
+builder.Services.AddSingleton<IProdutoRepository, ProdutoRepository>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
