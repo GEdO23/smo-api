@@ -18,6 +18,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Preço</th>
                     <th scope="col">Estoque</th>
+                    <th scope="col">#</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,9 @@
                         <td class="col-3">@produto.Nome</td>
                         <td class="col-3">@produto.Preco</td>
                         <td class="col-3">@produto.Estoque</td>
+                        <td class="col-1">
+                            <a href="/Produto/Detalhes/@produto.Id">Detalhes</a>
+                        </td>
                     </tr>
                 }
                 </tbody>
@@ -35,6 +39,6 @@
     </div>
 
     <div class="row">
-        <a asp-area="" asp-controller="Produto" asp-action="CadastrarProduto">Cadastrar produto</a>
+        <a asp-area="" asp-controller="Produto" asp-action="FormCadastro">Cadastrar produto</a>
     </div>
 </div>

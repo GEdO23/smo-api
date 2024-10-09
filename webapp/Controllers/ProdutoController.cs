@@ -34,4 +34,11 @@ public class ProdutoController : Controller
         await _produtoRepository.CreateProdutoAsync(produto);
         return RedirectToAction("Index");
     }
+
+    [HttpGet("/Produto/Detalhes/{id}")]
+    public async Task<IActionResult> Detalhes(string id)
+    {
+        var produto = await _produtoRepository.GetProdutoByIdAsync(id);
+        return View(produto);
+    }
 }
