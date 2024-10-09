@@ -1,8 +1,8 @@
 ﻿@model ProdutoModel
 
 @{
-ViewBag.Title = "Cadastro - Produto";
-Layout = "_Layout";
+    ViewBag.Title = "Cadastro - Produto";
+    Layout = "_Layout";
 }
 
 <div class="container mt-5">
@@ -38,8 +38,17 @@ Layout = "_Layout";
                 <input class="form-control" type="text" asp-for="Descricao">
             </div>
 
-            <button class="btn btn-primary mt-4" type="submit">Submit</button>
-
+            <div class="mt-4">
+                <a class="btn btn-outline-secondary"
+                   asp-area="" asp-controller="Produto" asp-action="Index"
+                   role="button">
+                    Voltar
+                </a>
+                <input class="btn btn-primary"
+                       type="submit"
+                       value="Cadastrar"
+                       role="button" />
+            </div>
         </form>
     </div>
 

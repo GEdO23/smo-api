@@ -38,8 +38,15 @@
     </div>
 
     <div class="row">
-        <a asp-area="" asp-controller="Produto" asp-action="Index">
-            Voltar para lista de Produtos
-        </a>
+        <div class="mt-4">
+            <a class="btn btn-outline-secondary"
+               asp-area="" asp-controller="Produto" asp-action="Index">
+                Voltar
+            </a>
+            <a class="btn btn-outline-danger"
+               href="/Produto/Atualizar/@Model.Id">
+                Atualizar
+            </a>
+        </div>
     </div>
 </div>

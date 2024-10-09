@@ -38,7 +38,18 @@ Layout = "_Layout";
                 <input class="form-control" type="text" asp-for="Descricao">
             </div>
 
-            <input type="submit" value="Atualizar" class="btn text-light btn-danger" />
+            <div class="mt-4">
+                <a class="btn btn-outline-secondary"
+                   asp-area="" asp-controller="Produto" asp-action="Index"
+                   role="button">
+                    Voltar
+                </a>
+                <input class="btn text-light btn-danger"
+                       type="submit"
+                       value="Atualizar"
+                       role="button" />
+            </div>
+
 
         </form>
     </div>

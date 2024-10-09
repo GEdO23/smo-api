@@ -31,14 +31,23 @@
                         <td class="col-3">@produto.Preco</td>
                         <td class="col-3">@produto.Estoque</td>
                         <td class="col-1">
-                            <a href="/Produto/Details/@produto.Id">Detalhes</a>
+                            <a class="btn btn-outline-primary"
+                               href="/Produto/Details/@produto.Id">
+                                Detalhes
+                            </a>
                         </td>
                         <td class="col-1">
-                            <a href="/Produto/Atualizar/@produto.Id">Atualizar</a>
+                            <a class="btn btn-outline-danger"
+                               href="/Produto/Atualizar/@produto.Id">
+                                Atualizar
+                            </a>
                         </td>
                         <td class="col-1">
                             <form asp-action="Delete" asp-controller="Produto" asp-route-id="@produto.Id" method="post">
-                                <button class="btn text-light btn-danger" type="submit">Delete</button>
+                                <button class="btn btn-outline-danger"
+                                        type="submit">
+                                    Delete
+                                </button>
                             </form>
                         </td>
                     </tr>
@@ -49,6 +58,11 @@
     </div>
 
     <div class="row">
-        <a asp-area="" asp-controller="Produto" asp-action="FormCadastro">Cadastrar produto</a>
+        <div>
+            <a class="btn btn-primary"
+               asp-area="" asp-controller="Produto" asp-action="FormCadastro">
+                Cadastrar produto
+            </a>
+        </div>
     </div>
 </div>
