@@ -19,6 +19,7 @@
                     <th scope="col">Preço</th>
                     <th scope="col">Estoque</th>
                     <th scope="col">#</th>
+                    <th scope="col">#</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,11 @@
                         <td class="col-3">@produto.Estoque</td>
                         <td class="col-1">
                             <a href="/Produto/Detalhes/@produto.Id">Detalhes</a>
+                        </td>
+                        <td class="col-1">
+                            <form asp-action="Delete" asp-controller="Produto" asp-route-id="@produto.Id" method="post">
+                                <button type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 }

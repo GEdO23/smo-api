@@ -41,4 +41,12 @@ public class ProdutoController : Controller
         var produto = await _produtoRepository.GetProdutoByIdAsync(id);
         return View(produto);
     }
+
+    // DELETE
+    [HttpPost("/Produto/Deletar/{id}")]
+    public async Task<IActionResult> Delete(string id)
+    {
+        await _produtoRepository.DeleteProdutoAsync(id);
+        return RedirectToAction("Index");
+    }
 }
