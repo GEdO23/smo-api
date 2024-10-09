@@ -49,4 +49,20 @@ public class ProdutoController : Controller
         await _produtoRepository.DeleteProdutoAsync(id);
         return RedirectToAction("Index");
     }
+
+    [HttpGet("/Produto/Atualizar/{id}")]
+    public async Task<IActionResult> FormUpdate(string id)
+    {
+        var produto = await _produtoRepository.GetProdutoByIdAsync(id);
+        return View(produto);
+    }
+
+    // PUT
+    [HttpPost("/Produto/Update/{id}")]
+    public async Task<IActionResult> Update(string id, ProdutoModel produto)
+    {
+        produto.Id = id;
+        await _produtoRepository.UpdateProdutoAsync(id, produto);
+        return RedirectToAction("Index");
+    }
 }
