@@ -19,23 +19,23 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Copying csproj files
-COPY ["smo-api/smo-api.csproj", "smo-api/"]
+COPY ["webapi/webapi.csproj", "webapi/"]
 COPY ["domain/domain.csproj", "domain/"]
 COPY ["data/data.csproj", "data/"]
 COPY ["settings/settings.csproj", "settings/"]
 COPY ["tests/tests.csproj", "tests/"]
 
 # Restoring dependencies
-RUN dotnet restore "smo-api/smo-api.csproj
+RUN dotnet restore "webapi/webapi.csproj
 
 # Copying the rest of the files
 COPY . .
 
-# Accessing the smo-api directory
-WORKDIR "/src/smo-api"
+# Accessing the webapi directory
+WORKDIR "/src/webapi"
 
 # Building the project
-RUN dotnet build "smo-api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "webapi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 
@@ -43,7 +43,7 @@ FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 
 # Publishing the project
-RUN dotnet publish "smo-api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "webapi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 

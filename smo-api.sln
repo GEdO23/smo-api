@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smo-api", "smo-api\smo-api.csproj", "{4529525B-CA9F-4EF1-A092-844517D33985}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapi", "webapi\webapi.csproj", "{4529525B-CA9F-4EF1-A092-844517D33985}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "domain", "domain\domain.csproj", "{95A90CE6-C968-419C-AEDE-D3AF67F4B2EF}"
 EndProject
@@ -9,6 +9,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data", "data\data.csproj", "{BA11B034-E689-4D77-9543-51BEAC7ADFB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{C4C5E831-185E-49D5-BDCA-6D19DFD97DA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapp", "webapp\webapp.csproj", "{6E73007A-61E3-4BE3-AEDD-C398938069E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,9 @@ Global
 		{C4C5E831-185E-49D5-BDCA-6D19DFD97DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4C5E831-185E-49D5-BDCA-6D19DFD97DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4C5E831-185E-49D5-BDCA-6D19DFD97DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E73007A-61E3-4BE3-AEDD-C398938069E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E73007A-61E3-4BE3-AEDD-C398938069E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E73007A-61E3-4BE3-AEDD-C398938069E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E73007A-61E3-4BE3-AEDD-C398938069E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

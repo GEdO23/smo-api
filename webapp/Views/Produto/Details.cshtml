@@ -1,0 +1,52 @@
+﻿@model ProdutoModel
+
+@{
+    ViewBag.Title = "Detalhes - Produto";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <h1>Detalhes de @Model.Nome</h1>
+    </div>
+
+    <div class="row">
+        <table class="table table-hover">
+
+            <tr>
+                <td class="col-2">Id</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td class="col-2">Nome</td>
+                <td>@Model.Nome</td>
+            </tr>
+            <tr>
+                <td class="col-2">Preço</td>
+                <td>@Model.Preco</td>
+            </tr>
+            <tr>
+                <td class="col-2">Estoque</td>
+                <td>@Model.Estoque</td>
+            </tr>
+            <tr>
+                <td class="col-2">Descrição</td>
+                <td>@Model.Descricao</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="mt-4">
+            <a class="btn btn-outline-secondary"
+               asp-area="" asp-controller="Produto" asp-action="Index">
+                Voltar
+            </a>
+            <a class="btn btn-outline-danger"
+               href="/Produto/Atualizar/@Model.Id">
+                Atualizar
+            </a>
+        </div>
+    </div>
+</div>
