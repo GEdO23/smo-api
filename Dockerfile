@@ -26,7 +26,7 @@ COPY ["settings/settings.csproj", "settings/"]
 COPY ["tests/tests.csproj", "tests/"]
 
 # Restoring dependencies
-RUN dotnet restore "webapi/webapi.csproj
+RUN dotnet restore "webapi/webapi.csproj"
 
 # Copying the rest of the files
 COPY . .
